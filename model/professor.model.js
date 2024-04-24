@@ -1,15 +1,15 @@
 const mongoose = require("mongoose");
 
-const FilmeSchema = mongoose.Schema(
+const ProfessorSchema = mongoose.Schema(
     {
         name: {
             type: String,
-            required: [true, "Please enter movie name"],
+            required: [true, "Please enter teacher name"],
         },
 
-        category: {
+        Disciplina: {
             type: String,
-            required: false
+            required: true
         },
 
         image: {
@@ -23,6 +23,6 @@ const FilmeSchema = mongoose.Schema(
 );
 
 
-const Filme = mongoose.model("Filme", FilmeSchema);
+const Professor = mongoose.model("Professor", ProfessorSchema);
 
-module.exports = Filme;
+module.exports = Professor;
