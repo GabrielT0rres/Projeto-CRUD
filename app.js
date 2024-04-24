@@ -22,8 +22,12 @@ app.get('/professores/:id', async (req, res) => {
 })
 
 app.post('/professores', async (req, res) => {
-    const professorCreated = await professor.create(req.body)
-    res.json(professorCreated)
+    try {
+        const professorCreated = await professor.create(req.body)
+        res.json(professorCreated)
+    } catch (error) {
+        res.status(500).json({ "error": error.message })
+    }
 })
 
 app.put('/professores/:id', async (req, res) => {
